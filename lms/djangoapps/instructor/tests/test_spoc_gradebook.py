@@ -1,5 +1,5 @@
 """
-Tests of the instructor dashboard gradebook
+Tests of the instructor dashboard spoc gradebook
 """
 
 from django.test.utils import override_settings
@@ -68,8 +68,9 @@ class TestGradebook(ModuleStoreTestCase):
                     module_state_key=item.location
                 )
 
+        # TODO does this work if we change to spoc_gradebook?
         self.response = self.client.get(reverse(
-            'gradebook_legacy',
+            'spoc_gradebook',
             args=(self.course.id.to_deprecated_string(),)
         ))
 
